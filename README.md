@@ -10,3 +10,8 @@
 ---   
 
 
+## API : jsonplaceholder.typicode.com/posts  Example
+
+[RTK Query with React](https://medium.com/@jdhawks/redux-toolkit-and-rtk-query-with-react-js-14e34be65622)  
+
+---  
