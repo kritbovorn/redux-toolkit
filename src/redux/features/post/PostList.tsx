@@ -9,13 +9,13 @@ const PostLists = () => {
 
     const posts = useSelector(selectAllPosts);
     const renderPosts = posts.map((post) => (
-        <Post title={post.title} content={post.content} />
+        <Post key={post.id} title={post.title} content={post.content} />
     ));
 
     return (
         <View style={{flex: 1}} >
-            <View style={{ backgroundColor: colors.primaryBlue, borderRadius: 12, borderWidth: 2, borderColor: colors.border, margin: 32, paddingVertical: 50, paddingHorizontal: 20 }}>
-                <Text style={{ fontSize: 32, color: 'white', fontWeight: 'bold' }}>Learn React Toolkit</Text>
+            <View style={{ backgroundColor: colors.primaryBlue, borderRadius: 12, borderWidth: 5, borderColor: colors.secondaryBackground, paddingVertical: 12, paddingHorizontal: 20, marginHorizontal: 40, marginBottom: 8 }}>
+                <Text style={{ fontSize: 22, color: 'white', fontWeight: 'bold', textAlign: 'center' }}>List of Posts</Text>
 
             </View>
             <ScrollView style={{ }}  >
