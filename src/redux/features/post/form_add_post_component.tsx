@@ -1,26 +1,33 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, Touchable, TouchableHighlight, View } from 'react-native';
-import { nanoid } from "@reduxjs/toolkit";
 import { postAdded } from "./post_slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { colors } from "../../../utils/colors/colors";
+import { selectAllUsers } from "../user/user_slice";
 
 const FormAddPostComponent = () => {
 
     const disPatch = useDispatch();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [userID, setUserID] = useState('')
+
+    const users = useSelector(selectAllUsers);
 
     const onTitleChanged = (e: string) => setTitle(e);
     const onContentChanged = (e: string) => setContent(e);
 
+    const onAuthorChanged = (e: string) => setUserID(e);
+
     const onSavedPostClicked = () => {
         if (title && content) {
-            disPatch(postAdded(title, content));
+            disPatch(postAdded(title, content, userID));
             setTitle("");
             setContent("");
         }
     }
+
+    
     return (
         <View style={{ padding: 20 }} >
 
