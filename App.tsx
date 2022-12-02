@@ -1,16 +1,19 @@
 import React from "react";
-import { Text ,View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import User from './assets/svg/user.svg';
+import TodoList from "./src/redux/features/todo/todo_list";
+import { colors } from "./src/utils/colors/colors";
+import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
+import { apiSlice } from "./src/redux/features/api/apiSlice";
+import MainScreen from "./src/main_screen";
 
 const App = () => {
-  return (  
-     <View style={{flex: 1, alignItems: "center", justifyContent: 'center'}} > 
-
+  return (
+    <ApiProvider api={apiSlice}>
       
-       < User width={100} height={100} fill={"blue"} />
-
-
-    </View>
+        <MainScreen />
+      
+    </ApiProvider>
   );
 }
 
