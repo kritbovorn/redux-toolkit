@@ -9,12 +9,14 @@ interface Props {
     color?: string;
     fontweight?: TextStyle['fontWeight'];
     fontFamily?: TextStyle['fontFamily'];
+    textAlign?: TextStyle['textAlign'];
     bottom?: FlexStyle['bottom'];
     right?: FlexStyle['bottom'];
+    
 }
-const   TextHeadline2: React.FC<Props> = ({title, color, fontweight, fontFamily, bottom, right}) => {
+const   TextHeadline2: React.FC<Props> = ({title, color, fontweight, fontFamily, bottom, right, textAlign}) => {
   return (  
-     <Text style={{fontSize: SizeConfig.headline2, color: color ?? colors.dark, fontWeight: fontweight ?? 'normal', fontFamily: fontFamily, bottom: bottom, right: right}} >{title}</Text>
+     <Text style={{fontSize: SizeConfig.headline2, color: color ?? colors.dark, fontWeight: fontweight ?? 'normal', fontFamily: fontFamily, bottom: bottom , right: right, textAlign: textAlign ?? 'left'}} >{title}</Text>
   );
 }
 

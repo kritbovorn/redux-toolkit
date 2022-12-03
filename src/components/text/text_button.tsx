@@ -8,14 +8,14 @@ interface Props {
     color?: string;
     fontweight?: TextStyle['fontWeight'];
     fontFamily?: TextStyle['fontFamily'];
-    // onpressed?: GestureResponderEvent;
+    textAlign?: TextStyle['textAlign'];
     onpressed(): void;
 }
 
-const   TextButton: React.FC<Props> = ({title, color, fontFamily, fontweight, onpressed}) => {
+const   TextButton: React.FC<Props> = ({title, color, fontFamily, fontweight, textAlign, onpressed}) => {
   return (  
     <TouchableHighlight onPress={() => onpressed()}>
-         <Text style= {{color: color ?? colors.dark, fontSize: SizeConfig.title, fontWeight: fontweight ?? 'bold', fontFamily: fontFamily}}>{title}</Text>
+         <Text style= {{color: color ?? colors.dark, fontSize: SizeConfig.title, fontWeight: fontweight ?? 'bold', fontFamily: fontFamily, textAlign: textAlign ?? 'left'}}>{title}</Text>
     </TouchableHighlight>
   );
 }

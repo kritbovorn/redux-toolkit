@@ -8,11 +8,12 @@ interface Props {
     color?: string;
     fontweight?: TextStyle['fontWeight'];
     fontFamily?: TextStyle['fontFamily'];
+    textAlign?: TextStyle['textAlign'];
 }
 
-const   TextSubtitle: React.FC<Props> = ({title, color, fontweight, fontFamily}) => {
+const   TextSubtitle: React.FC<Props> = ({title, color, fontweight, fontFamily, textAlign}) => {
   return (  
-     <Text style= {{fontSize: SizeConfig.subtitle, color: color ?? colors.dark, fontWeight: fontweight ?? 'normal', fontFamily: fontFamily}}>{title}</Text>
+     <Text style= {{fontSize: SizeConfig.subtitle, color: color ?? colors.dark, fontWeight: fontweight ?? 'normal', fontFamily: fontFamily, textAlign: textAlign ?? 'left'}}>{title}</Text>
   );
 }
 
