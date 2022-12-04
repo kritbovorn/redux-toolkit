@@ -4,6 +4,7 @@ import { colors } from "../../../utils/colors/colors";
 import SendReuestIcon from '../../../../assets/svg/send_request_icon.svg';
 
 import { useAddTodoMutation } from "../api/apiSlice";
+
 const Todo = () => {
 
   let [newTodo, setNewTodo] = useState('');

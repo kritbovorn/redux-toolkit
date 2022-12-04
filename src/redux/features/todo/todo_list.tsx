@@ -37,25 +37,38 @@ const TodoList = () => {
     let content;
 
     if (isLoading) {
+
         content =  <Text style={{ fontSize: 45, color: "red", textAlign: 'center' }}>. . . Loading . . .</Text>
+
     } else if (isSuccess) {
         
         content = todos.map((todo) => <Tod key={todo.id} title={todo.title} checked={todo.completed} onPressedTrash={() => deleteAlert(todo.id)} onPressedCheck={() => updateTodo( { ...todo, completed: !todo.completed})} />)
+
     } else if (error) {
+
         content = <Text style={{ fontSize: 45, color: 'red' }}>Oops!!! Have Error</Text>
+
     }
 
     return (
         <SafeAreaView style={{flex: 1, width: '100%'}}>
             <View style={[styles.container]} >
+
             <Todo />
+
              <View style={{padding: 12, backgroundColor: colors.primaryBlue, marginTop: 20, borderTopLeftRadius: 12, borderTopRightRadius: 12, borderWidth: 5, borderColor: colors.thirdBlue}}>
+                 
                  <Text style= {{fontSize: 18, color: colors.border}}>กิจกรรม ทั้งหมด</Text>
+
              </View>
             <ScrollView style={{borderWidth: 4, borderColor: colors.thirdBlue}}>
+
                 <View style={{flex: 1,  padding: 10, backgroundColor: colors.background}}>
+                    
                     {content}
+
                 </View>
+
             </ScrollView>
         </View>
         </SafeAreaView>

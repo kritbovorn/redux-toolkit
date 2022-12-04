@@ -10,9 +10,7 @@ import MainScreen from "./src/main_screen";
 const App = () => {
   return (
     <ApiProvider api={apiSlice}>
-      
         <MainScreen />
-      
     </ApiProvider>
   );
 }
