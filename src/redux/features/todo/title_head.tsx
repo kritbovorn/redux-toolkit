@@ -17,7 +17,7 @@ const TitleHead = () => {
       <TextHeadline2 title="Enter Todo here..." color={colors.primary} />
     </View>
     <View style={{ flex: 1, alignItems: 'center' }}>
-      <TouchableHighlight underlayColor={'transparent'} onPress={() => disPatch(todoSlice.actions.sort())} style={{ flex: 1, width: '100%', backgroundColor: colors.secondaryBackground, borderWidth: sc.midSpace, borderColor: colors.border, alignItems: 'center', justifyContent: 'center', borderRadius: sc.midSpace }}>
+      <TouchableHighlight underlayColor={'transparent'} onPress={() => disPatch(todoSlice.actions.sort())} style={{ flex: 1, width: '100%', backgroundColor: colors.thirdBlue, borderWidth: sc.midSpace, borderColor: colors.border, alignItems: 'center', justifyContent: 'center', borderRadius: sc.midSpace }}>
         <TextTitle title="Sort Des" color={colors.white} />
       </TouchableHighlight>
     </View>
