@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
   button: {
     flex: 1,
     justifyContent: 'center',
-    borderRadius: SizeConfig.midBorder,
+    borderRadius: SizeConfig.minSpace,
     borderColor: colors.secondary,
-    borderWidth: SizeConfig.minBorder
+    borderWidth: SizeConfig.minPad
   },
   text: {
     color: colors.secondary,

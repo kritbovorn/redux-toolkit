@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   button: {
     flex: 1,
     backgroundColor: colors.secondary,
-    borderRadius: SizeConfig.midBorder,
+    borderRadius: SizeConfig.minSpace,
     justifyContent: 'center'
   },
   text: {

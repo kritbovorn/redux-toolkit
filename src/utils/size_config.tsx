@@ -17,10 +17,18 @@ class SizeConfig {
     static readonly title = this.screenHeight * 0.02 ;   //  12
     static readonly subtitle = this.screenHeight * 0.0167;  // 10
     static readonly caption = this.screenHeight * 0.0134;   // 8
+
+    static readonly minPad = this.screenWidth * 0.02;
+    static readonly midPad = this.screenWidth * 0.03;
+    static readonly maxPad = this.screenWidth * 0.04;
     
-    static readonly minBorder = this.screenHeight * 0.002;
-    static readonly midBorder = this.screenHeight * 0.005;
-    static readonly maxBorder = this.screenHeight * 0.01;
+    static readonly minSpace = this.screenHeight * 0.0025;
+    static readonly midSpace = this.screenHeight * 0.005;
+    static readonly maxSpace = this.screenHeight * 0.01;
+
+    static readonly minCardHeight = this.screenHeight * 0.065;
+    static readonly midCardHeight = this.screenHeight * 0.075;
+    static readonly maxCardHeight = this.screenHeight * 0.085
 
     // Navigation Bar : 62 / 597
     static readonly navBarHeight = this.screenHeight * 0.1038
