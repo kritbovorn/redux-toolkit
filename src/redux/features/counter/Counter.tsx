@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text, TextInput, TouchableHighlight, View } from 'react-native';
 import { useDispatch, useSelector } from "react-redux";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { decrement, increment, selectCount, reset, incrementByAmount } from "./counter_slice";
+import { decrement, increment, reset, incrementByAmount } from "./counter_slice";
 
 const Counter = () => {
 
@@ -17,6 +16,7 @@ const Counter = () => {
   const count = useSelector((state: { counter: { count: any; } }) => state.counter.count);
   const disPatch = useDispatch();
   console.log(`Hey ${count}`);
+  
   return (
     <SafeAreaView style={{ flex: 1}}>
 

@@ -1,7 +1,6 @@
 import React from "react";
-import { Text ,View} from 'react-native';
+import { View} from 'react-native';
 import Counter from "../redux/features/counter/Counter";
-import { useAppSelector } from "../redux/hooks";
 
 const   RootScreen = () => {
   return (  
