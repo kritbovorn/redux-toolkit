@@ -13,6 +13,7 @@ const RootScreen = () => {
          <View style={{ flex: 1, backgroundColor: colors.background }}>
             
            <Counter />
+           
          </View>
        </SafeAreaView>
      </Fragment>
