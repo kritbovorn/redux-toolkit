@@ -291,9 +291,79 @@ export default FeedScreen;
 
 # Preview  
 
-https://user-images.githubusercontent.com/10919051/206223707-eb8c2360-2e76-4f53-98f5-ee90721ccb3a.mov
+https://user-images.githubusercontent.com/10919051/206223707-eb8c2360-2e76-4f53-98f5-ee90721ccb3a.mov  
 
+---  
 
+# 🆕 🆕 🆕 Modal  
+## [🔗 Creating a stack with modal screens](https://reactnavigation.org/docs/modal#creating-a-stack-with-modal-screens)  
+## App.tsx  
+- App.tsx  
+
+```typescript  
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+import HomeScreen from "./src/screens/home_screen";
+import DetailScreen from "./src/screens/detail_screen";
+import FeedScreen from "./src/screens/feed_screen";
+import { RootStackParamList } from "./src/navigation/types";
+import ModalScreen from "./src/screens/modal_screen";
+import ModelFirstScreen from "./src/screens/modal_first_screen";
+import ModalSecondScreen from "./src/screens/modal_second_screen";
+
+const RootStack = createNativeStackNavigator<RootStackParamList>();
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <RootStack.Navigator initialRouteName="Home" >
+        <RootStack.Group>
+          <RootStack.Screen name="Home" component={HomeScreen} options={{ title: "หน้าแรก" }} />
+          <RootStack.Screen name="Detail" component={DetailScreen} options={{ title: "หน้ารายละเอียด" }} />
+          <RootStack.Screen name="Feed" component={FeedScreen} options={{ title: "หน้า Feed", headerShown: false }} />
+        </RootStack.Group>
+        <RootStack.Group screenOptions={{ presentation: 'formSheet'}}>
+          <RootStack.Screen name="Modal" component={ModalScreen} options={{headerShown: false}} />
+          <RootStack.Screen name="ModalSecond" component={ModalSecondScreen} />
+        </RootStack.Group>
+        <RootStack.Group screenOptions={{ presentation: 'fullScreenModal'}}>
+          <RootStack.Screen name="ModalFirst" component={ModelFirstScreen}/>
+        </RootStack.Group>
+      </RootStack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
+
+```  
+
+## src/navigation/types.ts  
+- types.ts  
+
+```typescript  
+
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
+
+export type RootStackParamList = {
+    Home: undefined,
+    Detail: undefined,
+    Feed: undefined,
+    Modal: undefined,
+    ModalFirst: undefined,
+    ModalSecond: undefined
+}
+
+export type HomeScreenNavigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>
+export type DetailScreenNavigationProps = NativeStackScreenProps<RootStackParamList, 'Detail'>
+export type FeedScreenNavigationProps = NativeStackScreenProps<RootStackParamList, 'Feed'>
+export type ModalScreenNavigationProps = NativeStackScreenProps<RootStackParamList, 'Modal'>
+export type ModalFirstScreenNavigationProps = NativeStackScreenProps<RootStackParamList, 'ModalFirst'>
+export type ModalSecondScreenNavigationProps = NativeStackScreenProps<RootStackParamList, 'ModalSecond'>
+
+```  
 
 
 ## Usage  

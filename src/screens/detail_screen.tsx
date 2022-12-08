@@ -8,9 +8,10 @@ const DetailScreen = ({ navigation, route }: DetailScreenNavigationProps) => {
      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}} > 
 
       <Text style= {{fontSize: 42}}>DetailScreen</Text>
-      <Button 
-        title="Go to Feed Screen" 
-        onPress={() => navigation.navigate('Feed')} />
+      <Button title="Go to Feed Screen" onPress={() => navigation.navigate('Feed')} />
+      <Button title="Go to Modal Second Screen" onPress={() => navigation.navigate('ModalSecond')} />
+
+
       
     </View>
   );

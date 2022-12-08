@@ -7,7 +7,8 @@ const FeedScreen = ({navigation, route}: FeedScreenNavigationProps) => {
      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}} > 
 
       <Text style= {{fontSize: 42}}>Feed Screen</Text>
-      <Button title="Go to Home Screen" onPress={() => navigation.popToTop()} />
+      <Button title="Go to Modal Screen" onPress={() => navigation.navigate('Modal')} />
+      <Button title="Back to Home Screen" onPress={() => navigation.popToTop()} />
       
     </View>
   );
