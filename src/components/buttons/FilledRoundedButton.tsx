@@ -6,8 +6,8 @@ import {
   TouchableHighlight
 } from 'react-native';
 
-import { colors } from '../../utils/colors';
-import SizeConfig from '../../utils/size_config';
+import { colors } from '../../utils/colors/colors';
+import SizeConfig from '../../utils/size_configs/size_config';
 
 interface Props {
   caption: string;

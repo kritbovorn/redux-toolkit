@@ -5,22 +5,22 @@ import {
   View,
   TouchableHighlight
 } from 'react-native';
-import SizeConfig from '../../utils/size_config';
+import SizeConfig from '../../utils/size_configs/size_config';
 
-import { colors } from '../../utils/colors';
+import { colors } from '../../utils/colors/colors';
 
 interface Props {
   caption: string;
   onPress(): void;
 }
 
-const OutlinedRoundedButton: React.FC<Props> = ({caption, onPress}) => {
+const OutlinedRoundedButton: React.FC<Props> = ({ caption, onPress }) => {
   return (
     <TouchableHighlight
       style={styles.button}
       onPress={() => onPress()}
       underlayColor={colors.primaryBlue}>
-        <Text style={[styles.text, {fontSize: SizeConfig.title}]}>{caption}</Text>
+      <Text style={[styles.text, { fontSize: SizeConfig.title }]}>{caption}</Text>
     </TouchableHighlight>
   );
 }
