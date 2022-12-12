@@ -5,6 +5,9 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "ipad": "react-native run-ios --udid 0F8D6F84-B24D-49F5-B5B3-192984072AAB",
+    "se": "react-native run-ios --udid 5F115B11-B94F-4F0F-80AB-64189EFEADF4",
+    "plus": "react-native run-ios --udid 0DA46C19-2A75-4C3A-8C4F-B43E7FAEADE1",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
