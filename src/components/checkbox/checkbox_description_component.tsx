@@ -1,0 +1,40 @@
+import React from "react";
+import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { CheckIcon, gbs, sc } from '../../import/import_option';
+
+type Props = {
+    title: string,
+    onPress(): void,
+    isCheck: boolean
+}
+
+const CheckboxDescriptionComponent = ({title, onPress, isCheck}: Props) => {
+    return (
+        <View style={[styles.container]}>
+            <View style={[styles.checkbox, {backgroundColor: 'red'}]}>
+                <TouchableHighlight underlayColor={'transparent'} onPress={() => onPress()} style={[{flex: 1, justifyContent: "center"}]}>
+                   {isCheck ?  <CheckIcon height={'70%'} stroke={'white'} /> : <></>}
+                </TouchableHighlight>
+            </View>
+            <Text style={[gbs.fontMedium, { fontSize: sc.body }]}>{title}</Text>
+        </View>
+    );
+}
+
+export default CheckboxDescriptionComponent;
+
+
+const styles = StyleSheet.create({
+    container: {
+        height: sc.checkboxHeight,
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginHorizontal: sc.maxPad
+    },
+    checkbox: {
+        height: '100%',
+        aspectRatio: 1,
+        borderRadius: sc.midSpace,
+        marginRight: sc.midPad,
+    }
+});
