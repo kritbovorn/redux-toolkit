@@ -5,21 +5,21 @@ import { colors, gbs, sc } from "../../../components/import/import_options";
 import { useAppSelector } from "../../app/hook";
 import Post from "./post";
 import PostForm from "./post_form";
-import { selectPosts } from "./post_slice";
+import { selectAllPosts } from "./post_slice";
 
 const PostLists = () => {
-    const posts = useAppSelector(selectPosts)
+    const posts = useAppSelector(selectAllPosts)
     return (
         <View style={[{ flex: 1 }]} >
 
-            <View style={[{ flex: 4,}]}>
-                
-                    <PostForm />
-                    <View style={[{  flexDirection: 'row' }]}>
-                        <Text style={[gbs.head2, { fontWeight: '500' }]}>Post Lists</Text>
+            <View style={[{ flex: 4, }]}>
 
-                        <FilledButtonComponent title="Next Screen ➡" onPress={() => { }} width={'70%'} alignItems={'flex-end'} backgroundColor={colors.primaryBlue} />
-                    </View>
+                <PostForm />
+                <View style={[{ flexDirection: 'row' }]}>
+                    <Text style={[gbs.head2, { fontWeight: '500' }]}>Post Lists</Text>
+
+                    <FilledButtonComponent title="Next Screen ➡" onPress={() => { }} width={'70%'} alignItems={'flex-end'} backgroundColor={colors.primaryBlue} />
+                </View>
             </View>
 
             <View style={[{ flex: 5 }]}>

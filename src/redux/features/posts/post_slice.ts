@@ -8,8 +8,8 @@ type PostState = {
 };
 
 const initialState: PostState[] = [
-    {id: '1', title: 'บอย Learning Redux Toolkit', content: 'I have heard good things'},
-    {id: '2', title: 'กฤตบวร ทวียศศักดิ์ Slices.....', content: 'The more I say slice, the more I love it'}
+    { id: '1', title: 'บอย Learning Redux Toolkit', content: 'I have heard good things' },
+    { id: '2', title: 'กฤตบวร ทวียศศักดิ์ Slices.....', content: 'The more I say slice, the more I love it' }
 ];
 
 const postSlice = createSlice({
@@ -17,10 +17,10 @@ const postSlice = createSlice({
     initialState,
     reducers: {
         postAdded: {
-            reducer(state, action: PayloadAction<PostState>)  {
+            reducer(state, action: PayloadAction<PostState>) {
                 state.push(action.payload);
             },
-            prepare(title, content) {
+            prepare(title: string, content: string) {
                 return {
                     payload: {
                         id: nanoid(),
@@ -33,7 +33,7 @@ const postSlice = createSlice({
     }
 });
 
-export const selectPosts = (state: RootState) => state.posts;
+export const selectAllPosts = (state: RootState) => state.posts;
 
 export const { postAdded } = postSlice.actions;
 
