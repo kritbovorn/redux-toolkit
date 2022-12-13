@@ -1,6 +1,6 @@
 import React from "react";
 import { ColorValue, FlexAlignType, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-import { colors, gbs, sc } from '../../../import/import_option';
+import { colors, gbs, sc } from '../../import/import_options';
 
 type Props = {
     title: string,
@@ -17,7 +17,7 @@ const OutlineButtonComponent = ({title, width, color, backgroundColor, fontSize,
     return (
         <View style={{ flex: 1, alignItems: alignItems ?? 'center' }}>
             <TouchableHighlight underlayColor={underlayColor ?? 'lightgrey'} onPress={() => onPress()} style={[styles.button, { flex: 1, width: width ?? '100%', backgroundColor: backgroundColor ?? 'white' }]}>
-                <Text style={[gbs.fontSemiBold, { color: color ?? 'red', fontSize: fontSize ?? sc.body }]}>{title}</Text>
+                <Text style={[gbs.head1, { color: color ?? 'red'}]}>{title}</Text>
             </TouchableHighlight>
         </View>
     );

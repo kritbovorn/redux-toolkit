@@ -1,7 +1,7 @@
 import React from "react";
 import { Text ,View} from 'react-native';
 import { Provider } from "react-redux";
-import { store } from "./src/redux/app/store";
+import store from "./src/redux/app/store";
 import RootScreen from "./src/screens/root_screen";
 
 const App = () => {
