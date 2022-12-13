@@ -3,22 +3,27 @@ import { Text, TextInput, View } from 'react-native';
 import FilledButtonComponent from "../../../components/buttons/buttons/filled_button_component";
 import { gbs, sc } from "../../../components/import/import_options";
 import Spacer from "../../../components/spacer/spacer";
-import { useAppDispatch } from "../../app/hook";
+import { useAppDispatch, useAppSelector } from "../../app/hook";
+import { selectAllUsers } from "../users/user_slice";
 import { postAdded } from "./post_slice";
-import { nanoid } from '@reduxjs/toolkit';
 
 const PostForm = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [userId, setUserId] = useState('');
+
     const dispatch = useAppDispatch();
+    const users = useAppSelector(selectAllUsers);
 
     const savePostClicked = () => {
         if (title && content) {
-            dispatch(postAdded(title, content));
+            dispatch(postAdded(title, content, userId));
             setTitle('');
             setContent('');
         }
     };
+
+    
 
     return (
         <View style={[{ height: sc.cardListHeight * 2.5, justifyContent: 'space-evenly', marginBottom: sc.maxPad }]} >
