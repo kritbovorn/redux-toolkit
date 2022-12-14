@@ -15,39 +15,39 @@ const globalStyles = StyleSheet.create({
     },
     head5: {
         fontSize: sc.head5,
-        fontFamily: 'Prompt-Medium',
+        fontFamily: 'Kanit-Medium',
     },
     head4: {
         fontSize: sc.head4,
-        fontFamily: 'Prompt-Medium',
+        fontFamily: 'Kanit-Medium',
     },
     head3: {
         fontSize: sc.head3,
-        fontFamily: 'Prompt-Medium',
+        fontFamily: 'Kanit-Medium',
     },
     head2: {
         fontSize: sc.head2,
-        fontFamily: 'Prompt-Medium',
+        fontFamily: 'Kanit-Medium',
     },
     head1: {
         fontSize: sc.head1,
-        fontFamily: 'Prompt-Medium',
+        fontFamily: 'Kanit-Medium',
     },
     head: {
         fontSize: sc.head,
-        fontFamily: 'Prompt-Medium',
+        fontFamily: 'Kanit-Medium',
     },
     body: {
         fontSize: sc.body,
-        fontFamily: 'Prompt-Medium',
+        fontFamily: 'Kanit-Medium',
     },
     title: {
         fontSize: sc.title,
-        fontFamily: 'Prompt-Medium',
+        fontFamily: 'Kanit-Medium',
     },
     subtitle: {
         fontSize: sc.subtitle,
-        fontFamily: 'Prompt-Medium',
+        fontFamily: 'Kanit-Medium',
     },
     caption: {
         fontSize: sc.caption,

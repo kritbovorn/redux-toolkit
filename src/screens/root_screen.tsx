@@ -5,7 +5,7 @@ import { gbs } from '../components/import/import_options';
 const RootScreen = () => {
   return (  
      <View style={[gbs.center, styles.container, {flex: 1}]} > 
-       <Text style= {[{fontSize: 54}]}>Boie</Text>
+       <Text style= {[gbs.head5]}>Boie = กฤตบวร ทวียศศักดิ์</Text>
     </View>
   );
 }
