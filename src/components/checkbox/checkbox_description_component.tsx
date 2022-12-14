@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-import { CheckIcon, gbs, sc } from '../../import/import_option';
+import { CheckIcon, gbs, sc } from "../../utils/import/import_options";
 
 type Props = {
     title: string,
@@ -16,7 +16,7 @@ const CheckboxDescriptionComponent = ({title, onPress, isCheck}: Props) => {
                    {isCheck ?  <CheckIcon height={'70%'} stroke={'white'} /> : <></>}
                 </TouchableHighlight>
             </View>
-            <Text style={[gbs.fontMedium, { fontSize: sc.body }]}>{title}</Text>
+            <Text style={[gbs.body]}>{title}</Text>
         </View>
     );
 }

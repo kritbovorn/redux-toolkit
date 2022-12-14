@@ -7,13 +7,13 @@ interface Props {
   style?: StyleProp<TextStyle>;
 }
 
-const TextSubtitle: React.FC<Props> = ({ title, style}) => {
+const TextHeadline5: React.FC<Props> = ({ title, style}) => {
   return (
-    <Text style={[style, gbs.subtitle]}>{title}</Text>
+    <Text style={[style, gbs.head5]}>{title}</Text>
   );
 }
 
-export default TextSubtitle;
+export default TextHeadline5;
 
 
 

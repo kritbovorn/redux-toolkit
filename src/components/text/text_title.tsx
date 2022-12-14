@@ -1,19 +1,15 @@
 import React from "react";
-import { TextStyle, Text } from 'react-native';
-import { colors } from '../../utils/colors/colors'
-import SizeConfig from "../../utils/size_configs/size_config";
+import { TextStyle, Text, StyleProp } from 'react-native';
+import { gbs } from "../../utils/import/import_options";
 
 interface Props {
   title: string;
-  color?: string;
-  fontweight?: TextStyle['fontWeight'];
-  fontFamily?: TextStyle['fontFamily'];
-  textAlign?: TextStyle['textAlign'];
+  style?: StyleProp<TextStyle>;
 }
 
-const TextTitle: React.FC<Props> = ({ title, color, fontweight, fontFamily, textAlign }) => {
+const TextTitle: React.FC<Props> = ({ title, style }) => {
   return (
-    <Text style={{ fontSize: SizeConfig.title, color: color ?? colors.dark, fontWeight: fontweight ?? 'normal', fontFamily: fontFamily, textAlign: textAlign ?? 'left' }}>{title}</Text>
+    <Text style={[style, gbs.title]}>{title}</Text>
   );
 }
 

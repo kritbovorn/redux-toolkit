@@ -6,14 +6,13 @@ interface Props {
   title: string;
   style?: StyleProp<TextStyle>;
 }
-
-const TextSubtitle: React.FC<Props> = ({ title, style}) => {
+const TextHead2: React.FC<Props> = ({ title, style}) => {
   return (
-    <Text style={[style, gbs.subtitle]}>{title}</Text>
+    <Text style={[style, gbs.head2]}>{title}</Text>
   );
 }
 
-export default TextSubtitle;
+export default TextHead2;
 
 
 
