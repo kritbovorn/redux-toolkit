@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import FilledButtonComponent from "../../../components/buttons/buttons/filled_button_component";
+import { CaretDown } from "../../../components/import/import_icons";
 import { colors, gbs, sc } from "../../../components/import/import_options";
 import { useAppSelector } from "../../app/hook";
 import Post from "./post";
