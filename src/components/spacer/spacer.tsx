@@ -1,9 +1,10 @@
 import React from "react";
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { sc } from "../../utils/import/import_options";
 
 const Spacer = () => {
   return (
-    <View style={{flex: 1}}></View>
+    <View style={{height: sc.head1}}></View>
   );
 }
 

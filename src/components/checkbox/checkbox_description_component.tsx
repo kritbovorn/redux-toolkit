@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-import { CheckIcon, gbs, sc } from "../../utils/import/import_options";
+import {gbs, sc } from "../../utils/import/import_options";
+// import CheckIcon from "../../../assets/svg/check.svg";
 
 type Props = {
     title: string,
@@ -13,7 +14,7 @@ const CheckboxDescriptionComponent = ({title, onPress, isCheck}: Props) => {
         <View style={[styles.container]}>
             <View style={[styles.checkbox, {backgroundColor: 'red'}]}>
                 <TouchableHighlight underlayColor={'transparent'} onPress={() => onPress()} style={[{flex: 1, justifyContent: "center"}]}>
-                   {isCheck ?  <CheckIcon height={'70%'} stroke={'white'} /> : <></>}
+                   {/* {isCheck ?  <CheckIcon height={'70%'} stroke={'white'} /> : <></>} */}
                 </TouchableHighlight>
             </View>
             <Text style={[gbs.body]}>{title}</Text>
