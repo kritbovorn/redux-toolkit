@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import { Fruit } from "../../screens/home_screen";
 import { CaretDown } from "../../utils/import/import_icons";
 import { gbs, sc } from "../../utils/import/import_options";
@@ -39,12 +39,14 @@ const DropdownComponent = ({ datas }: DropDownProps) => {
             </TouchableHighlight>
             <Spacer />
             {isShow
-                ? <View style={[styles.dropdown]}>
+                ? <View style={[styles.dropdown, {maxHeight: sc.cardListHeight * 2.2}]}>
+                    <ScrollView >
                     {datas.map((item, index) =>
                         <TouchableHighlight key={index} underlayColor={'rgba(0, 0, 0, 0.1)'} onPress={() => onSelectedItem(item.name)} >
-                            <Text key={index} style={[styles.textDropDown, gbs.body]}>{`${item.name}`}</Text>
+                            <Text key={index} style={[styles.textDropDown, gbs.body, {backgroundColor: item.name === title ? 'aqua' : 'darkseagreen'}]}>{`${item.name}`}</Text>
                         </TouchableHighlight>
                     )}
+                    </ScrollView>
 
                 </View>
                 :
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     },
     textDropDown: {
         color: 'darkgreen',
-        backgroundColor: 'darkseagreen',
+        // backgroundColor: 'darkseagreen',
         padding: sc.maxPad,
         fontWeight: '500',
         marginBottom: sc.minSpace
