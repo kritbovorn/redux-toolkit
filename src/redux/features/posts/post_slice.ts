@@ -4,12 +4,13 @@ import { RootState } from "../../app/store";
 type PostState = {
     id: string,
     title: string,
-    content: string
+    content: string,
+    userId: string 
 };
 
 const initialState: PostState[] = [
-    { id: '1', title: 'บอย Learning Redux Toolkit', content: 'I have heard good things' },
-    { id: '2', title: 'กฤตบวร ทวียศศักดิ์ Slices.....', content: 'The more I say slice, the more I love it' }
+    { id: '1', title: 'บอย Learning Redux Toolkit', content: 'I have heard good things', userId: "" },
+    { id: '2', title: 'กฤตบวร ทวียศศักดิ์ Slices.....', content: 'The more I say slice, the more I love it', userId: "" }
 ];
 
 const postSlice = createSlice({
@@ -21,6 +22,7 @@ const postSlice = createSlice({
                 state.push(action.payload);
             },
             prepare(title: string, content: string, userId: string) {
+                console.log(`User Id: ${userId}`)
                 return {
                     payload: {
                         id: nanoid(),

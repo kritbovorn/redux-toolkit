@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Text, TextInput, View } from 'react-native';
 import FilledButtonComponent from "../../../components/buttons/buttons/filled_button_component";
+import DropdownComponent from "../../../components/dropdown/dropdown_component";
 import { gbs, sc } from "../../../components/import/import_options";
 import Spacer from "../../../components/spacer/spacer";
 import { useAppDispatch, useAppSelector } from "../../app/hook";
@@ -20,16 +21,17 @@ const PostForm = () => {
             dispatch(postAdded(title, content, userId));
             setTitle('');
             setContent('');
+            
         }
     };
 
-    
-
     return (
-        <View style={[{ height: sc.cardListHeight * 2.5, justifyContent: 'space-evenly', marginBottom: sc.maxPad }]} >
-            <Text style={[gbs.head3, {marginBottom: sc.midPad}]}>Add New Post</Text>
-            
-            <View style={{ flex: 1 }}>
+        <View style={[{ flex: 0, justifyContent: 'space-evenly', marginBottom: sc.maxPad }]} >
+            <Text style={[gbs.head3, { marginBottom: sc.midPad }]}>Add New Post</Text>
+
+            <DropdownComponent datas={users} onPress={(id) => setUserId(id)} />
+
+            <View style={{zIndex: -1}}>
                 <TextInput
                     key={'post title'}
                     style={[gbs.head, gbs.textfieldBorder, {}]}
@@ -38,7 +40,8 @@ const PostForm = () => {
                     onChangeText={(value) => setTitle(value)} />
 
             </View>
-            <View style={{}}>
+            <Spacer />
+            <View style={{zIndex: -1}}>
                 <TextInput
                     numberOfLines={3}
                     key={'post content'}
@@ -48,11 +51,11 @@ const PostForm = () => {
                     onChangeText={(value) => setContent(value)} />
             </View>
             <Spacer />
-            
-            <View style={[{height: sc.buttonHeight}]}>
-            <FilledButtonComponent  title="Add Post" onPress={() => savePostClicked()} />
+
+            <View style={[{ height: sc.buttonHeight, zIndex: -1 }]}>
+                <FilledButtonComponent title="Add Post" onPress={() => savePostClicked()} />
             </View>
-            
+
         </View>
 
     );
