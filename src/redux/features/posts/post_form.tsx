@@ -24,6 +24,8 @@ const PostForm = () => {
         }
     };
 
+    const canSave = Boolean(title) && Boolean(content) && Boolean(userId)
+
     return (
         <View style={[{ flex: 0, justifyContent: 'space-evenly', marginBottom: sc.maxPad }]} >
             <Text style={[gbs.head3, { marginBottom: sc.midPad }]}>Add New Post</Text>
@@ -52,7 +54,7 @@ const PostForm = () => {
             <Spacer />
 
             <View style={[{ height: sc.buttonHeight, zIndex: -1 }]}>
-                <FilledButtonComponent title="Add Post" onPress={() => savePostClicked()} />
+                <FilledButtonComponent disabled={!canSave} title="Add Post" onPress={() => savePostClicked()} />
             </View>
 
         </View>

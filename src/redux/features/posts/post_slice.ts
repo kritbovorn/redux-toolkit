@@ -3,14 +3,7 @@ import { sub } from "date-fns";
 import { RootState } from "../../app/store";
 
 export type ReactionState = {
-    thumbsUp: number,
-    wow: number,
-    heart: number,
-    rocket: number,
-    coffee: number,
     [key: string]: any;  // $$$ This solved warning : Element implicitly has an 'any' type because expression of type 'any' can't be used to index type
-
-
 }
 
 export type PostState = {
@@ -21,7 +14,6 @@ export type PostState = {
     date: string,
     reactions: ReactionState,
 }
-
 
 const initialState: PostState[] = [
     {
@@ -80,7 +72,6 @@ const postSlice = createSlice({
                 }
 
             }
-
         },
         reactionAdded(state, action) {
             const { postId, reaction } = action.payload;
@@ -91,11 +82,8 @@ const postSlice = createSlice({
             }
         }
     }
-
 });
 
 export const selectAllPosts = (state: RootState) => state.posts;
-
 export const { postAdded, reactionAdded } = postSlice.actions;
-
 export default postSlice.reducer    
