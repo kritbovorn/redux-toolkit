@@ -1,24 +1,24 @@
 import React from "react";
 import { StyleSheet, Text ,View} from 'react-native';
+import TimeAgoComponent from "../../../component/time/time_ago_component";
 import { colors, gbs, sc } from "../../../components/import/import_options";
-import { useAppSelector } from "../../app/hook";
-import { selectAllUsers } from "../users/user_slice";
 import PostAuthor from "./post_author";
 
 type Props = {
     title: string,
     content: string,
-    userId: string
+    userId: string,
+    date: string,
 };
 
-const Post = ({title, content, userId}: Props) => {
-  const users = useAppSelector(selectAllUsers);
-  const author = users.find((user) => user.id === userId)
+const Post = ({title, content, date, userId}: Props) => {
+  
   return (  
      <View style={[styles.container, {flex: 0}]} > 
          <Text style= {[gbs.head3]}>{title}</Text>
           <Text style= {gbs.head1}>{content}</Text>
            <PostAuthor userId={userId} />
+           <TimeAgoComponent timeStamp={date} />
     </View>
   );
 }

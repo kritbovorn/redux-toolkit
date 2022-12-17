@@ -11,7 +11,8 @@ import { selectAllPosts } from "./post_slice";
 
 const PostLists = () => {
     const posts = useAppSelector(selectAllPosts)
-    const users = useAppSelector(selectAllUsers);
+     
+    const orderedPost = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
 
     return (
         <View style={[{ flex: 1 }]} >
@@ -22,7 +23,7 @@ const PostLists = () => {
 
                 <ScrollView contentContainerStyle={{ flexGrow: 1, zIndex: -200}}>
                     <View style={[{ paddingVertical: sc.body,  zIndex: -1  }]}>
-                        {posts.map((e) => <Post key={e.id} title={e.title} content={e.content} userId={e.userId}/>)}
+                        {orderedPost.map((e) => <Post key={e.id} date={e.date} title={e.title} content={e.content} userId={e.userId}/>)}
                     </View>
                 </ScrollView>
             </View>
