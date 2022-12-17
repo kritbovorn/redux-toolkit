@@ -2,17 +2,18 @@ import { createSlice, isAnyOf, nanoid, PayloadAction } from "@reduxjs/toolkit";
 import { sub } from "date-fns";
 import { RootState } from "../../app/store";
 
-type ReactionState = {
-    [key: string]: any;  // $$$ This solved warning : Element implicitly has an 'any' type because expression of type 'any' can't be used to index type
+export type ReactionState = {
     thumbsUp: number,
     wow: number,
     heart: number,
     rocket: number,
     coffee: number,
+    [key: string]: any;  // $$$ This solved warning : Element implicitly has an 'any' type because expression of type 'any' can't be used to index type
+
 
 }
 
-type PostState = {
+export type PostState = {
     id: string,
     title: string,
     content: string,

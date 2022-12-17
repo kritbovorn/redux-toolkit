@@ -13,11 +13,16 @@ type Props = {
   onPress(): void
 }
 
-const FilledButtonComponent = ({title, width, color, backgroundColor, fontSize, alignItems, underlayColor, onPress}: Props) => {
+const FilledButtonComponent = ({title, width, color, backgroundColor, alignItems, underlayColor, onPress}: Props) => {
   return (  
     <View style={{ flex: 1, alignItems: alignItems ?? 'center' }}>
-    <TouchableHighlight underlayColor={ underlayColor ?? 'transparent'} onPress={() => onPress()} style={[styles.button, {  height: sc.buttonHeight  , width: width ?? '100%', backgroundColor: backgroundColor ?? "red"} ]}>
+    <TouchableHighlight 
+      underlayColor={ underlayColor ?? 'transparent'} 
+      onPress={() => onPress()} 
+      style={[styles.button, {  height: sc.buttonHeight, width: width ?? '100%', backgroundColor: backgroundColor ?? "red"} ]}>
+
         <Text style={[gbs.head1, {  color: color ?? "white" }]}>{title}</Text>
+        
     </TouchableHighlight>
 </View>
   );

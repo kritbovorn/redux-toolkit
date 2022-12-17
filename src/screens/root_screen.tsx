@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { SafeAreaView, StatusBar, Text, View } from 'react-native';
-import { gbs, sc } from '../components/import/import_options';
+import { sc } from '../components/import/import_options';
 import PostLists from "../redux/features/posts/post_lists";
 
 const RootScreen = () => {
@@ -12,6 +12,7 @@ const RootScreen = () => {
                     <View style={[{ flex: 1, paddingHorizontal: sc.maxPad }]} >
                         
                         <PostLists />
+                        
                     </View>
             </SafeAreaView>
         </Fragment>
