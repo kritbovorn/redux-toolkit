@@ -2,6 +2,44 @@
 
 ` npm i date-fns `  
 
+## Axios  
+` npm i axios `  
+
+---  
+
+# Fixed Error  
+
+- ## Error:  Element implicitly has an 'any' type because expression of type 'any' can't be used to index type  
+
+```typescript  
+
+export type ReactionState = {
+    [key: string]: any;  //  ::::: Solved by : [key: string]: any;
+}
+
+
+```
+ ---  
+
+- ## Error:  Argument of type 'PostState' is not assignable to parameter of type 'never'  
+
+```typescript  
+
+const initialState = {
+    //posts: [], // ::::: Error:  Argument of type 'PostState' is not assignable to parameter of type 'never'
+    posts: [] as PostState[],   // ::::: Solved
+    status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'  
+    error: null
+}
+
+
+```  
+
+---  
+---  
+---  
+
+
 # Code  
 - ## store.ts  
 

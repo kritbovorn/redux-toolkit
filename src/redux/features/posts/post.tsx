@@ -8,18 +8,18 @@ import ReactionButton from "./reaction_button";
 
 type Props = {
   title: string,
-  content: string,
+  body: string,
   userId: string,
   date: string,
   post: PostState
 };
 
-const Post = ({ title, content, date, userId, post }: Props) => {
+const Post = ({ title, body, date, userId, post }: Props) => {
 
   return (
     <View style={[styles.container, { flex: 0 }]} >
       <Text style={[gbs.head3]}>{title}</Text>
-      <Text style={gbs.head1}>{content}</Text>
+      <Text style={[gbs.head1, {color: colors.secondary}]}>{body}</Text>
       <PostAuthor userId={userId} />
 
       <ReactionButton post={post} />
