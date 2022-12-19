@@ -39,11 +39,7 @@ const PostLists = () => {
                 <ScrollView contentContainerStyle={{ flexGrow: 1, zIndex: -200 }}>
                     {content}
                 </ScrollView>
-
-
-
-
-
+                
             </View>
         </View>
     );
