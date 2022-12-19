@@ -20,7 +20,7 @@ const Post = ({ title, body, date, userId, post }: Props) => {
     <View style={[styles.container, { flex: 0 }]} >
       <Text style={[gbs.head3]}>{title}</Text>
       <Text style={[gbs.head1, {color: colors.secondary}]}>{body}</Text>
-      <PostAuthor userId={userId} />
+      <PostAuthor userId={Number(userId)} />
 
       <ReactionButton post={post} />
 

@@ -6,25 +6,38 @@ import { gbs, sc } from "../../../components/import/import_options";
 import Spacer from "../../../components/spacer/spacer";
 import { useAppDispatch, useAppSelector } from "../../app/hook";
 import { selectAllUsers } from "../users/user_slice";
-import { postAdded } from "./post_slice";
+import { postAdded, addNewPost } from "./post_slice";
 
 const PostForm = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [userId, setUserId] = useState('');
+    const [addRequestStatus, setAddRequestStatus] = useState('idle');
 
     const dispatch = useAppDispatch();
     const users = useAppSelector(selectAllUsers);
 
-    const savePostClicked = () => {
-        if (title && content) {
-            dispatch(postAdded(title, content, userId));
-            setTitle('');
-            setContent('');
-        }
-    };
+    // const canSave = Boolean(title) && Boolean(content) && Boolean(userId);
+    const canSave = [title, content, userId].every(Boolean) && addRequestStatus === 'idle';
 
-    const canSave = Boolean(title) && Boolean(content) && Boolean(userId)
+    const savePostClicked = () => {
+       
+        if (canSave) {
+            try {
+                setAddRequestStatus('pending');
+                dispatch(addNewPost({title, body: content, userId})).unwrap()
+
+                setTitle('');
+                setContent('');
+                setUserId('');
+            } catch (err) {
+                console.error("38: Failed to save the Post", err)
+            } finally {
+                setAddRequestStatus("idle");
+            }
+        }
+        
+    };
 
     return (
         <View style={[{ flex: 0, justifyContent: 'space-evenly', marginBottom: sc.maxPad }]} >

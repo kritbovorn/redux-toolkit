@@ -2,7 +2,7 @@ import { createSlice, nanoid, PayloadAction, createAsyncThunk, miniSerializeErro
 import { RootState } from "../../app/store";
 import { ApiUrl } from "../../../enum/enum_api";
 import axios from "axios";
-import {sub} from "date-fns";
+import { sub } from "date-fns";
 
 
 export type ReactionState = {
@@ -18,6 +18,14 @@ export type PostState = {
     reactions: ReactionState,
 }
 
+export type InitailPost = {
+    userId: string,
+    date?: string,
+    title: string,
+    body: string,
+    reactions?: ReactionState
+}
+
 const POST_URL = ApiUrl.posts;
 
 const initialState = {
@@ -28,9 +36,15 @@ const initialState = {
 }
 
 export let fetchedPosts = createAsyncThunk('posts/fetchedPosts', async () => {
-   
+
     const response = await axios.get(POST_URL)
+    console.log(`41: Post slice: ${response.data}`)
     return response.data
+})
+
+export const addNewPost = createAsyncThunk('posts/addNewPost', async (initialPost: InitailPost) => {
+    const response = await axios.post(POST_URL, initialPost);
+    return response.data;
 })
 
 const postSlice = createSlice({
@@ -67,7 +81,7 @@ const postSlice = createSlice({
                 existingPost.reactions[reaction]++;
             }
         }
-    }, 
+    },
     extraReducers(builder) {
         builder
             .addCase(fetchedPosts.pending, (state, action) => {
@@ -78,27 +92,40 @@ const postSlice = createSlice({
 
                 // Add date() in reactions
                 let min = 1;
-               
+
                 const loadedPosts: PostState[] = action.payload.map((post: PostState) => {
-                    post.date = sub(new Date(), {minutes: min++}).toISOString() ?? "";
+                    post.date = sub(new Date(), { minutes: min++ }).toISOString() ?? "";
                     post.reactions = {
                         thumbsUp: 0,
-                        hooray: 0,
+                        wow: 0,
                         heart: 0,
                         rocket: 0,
-                        eyes: 0
+                        coffee: 0,
                     }
                     return post;
                 });
 
                 // Add any fetchedPost to the Array
                 state.posts = state.posts.concat(loadedPosts);
-                // state.posts = loadedPosts;
-                
+
             })
             .addCase(fetchedPosts.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error.message ?? "";
+            })
+            .addCase(addNewPost.fulfilled, (state, action: PayloadAction<PostState>) => {
+               
+                action.payload.userId = action.payload.userId;
+            
+                action.payload.date = new Date().toISOString();
+                action.payload.reactions = {
+                    thumbsUp: 0,
+                    wow: 0,
+                    heart: 0,
+                    rocket: 0,
+                    coffee: 0,
+                }
+                state.posts.push(action.payload);
             })
     },
 });

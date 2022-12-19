@@ -12,9 +12,15 @@ const PostLists = () => {
     const postsStatus = useAppSelector(selectAllPostsStatus);
     const postsError = useAppSelector(selectAllPostsError);
 
+    const ref = useRef(false);
+
     useEffect(() => {
-        if (postsStatus === 'idle') {
-            dispatch(fetchedPosts())
+        if (ref.current === false) {
+            if (postsStatus === 'idle') {
+                dispatch(fetchedPosts())
+                ref.current = true;
+            }
+            
         }
     }, [postsStatus, dispatch])
 
@@ -30,6 +36,8 @@ const PostLists = () => {
         content = <Text style={[{ fontSize: 45, color: 'red', fontWeight: 'bold' }]}>Oops!!! ::: Error......</Text>
     }
 
+    console.log(`39::: ${posts.map((post) => post.userId)}`)
+
     return (
         <View style={[{ flex: 1 }]} >
 
@@ -39,7 +47,7 @@ const PostLists = () => {
                 <ScrollView contentContainerStyle={{ flexGrow: 1, zIndex: -200 }}>
                     {content}
                 </ScrollView>
-                
+
             </View>
         </View>
     );
